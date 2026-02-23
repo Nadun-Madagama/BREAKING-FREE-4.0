@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Project Breaking Free 4.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#020617',
+                        'accent-primary': '#2dd4bf',
+                        'accent-secondary': '#34d399',
+                        'glass-white': 'rgba(255, 255, 255, 0.05)',
+                        'slate-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%)",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-deep-blue text-white relative overflow-x-hidden">
+    <!-- Background Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="blob bg-purple-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -top-20 -left-20 animate-blob">
+        </div>
+        <div
+            class="blob bg-blue-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 top-40 right-10 animate-blob animation-delay-2000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-[60px] w-auto object-contain">
+                        <span class="text-2xl font-bold text-white tracking-tight hidden sm:block">Breaking<span
+                                class="text-accent-primary">Free</span> 4.0</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Home</a>
+                        <a href="phases.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Phases</a>
+                        <a href="about-us.html"
+                            class="text-accent-primary font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent-primary">About
+                            Us</a>
+                        <a href="stories.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Stories</a>
+                        <a href="game.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Challenge</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
+                        id="mobile-menu-btn">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-dark/95 backdrop-blur-xl border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 text-center">
+                <a href="index.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Home</a>
+                <a href="phases.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Phases</a>
+                <a href="about-us.html"
+                    class="block text-accent-primary bg-white/5 px-3 py-3 rounded-lg text-base font-medium">About Us</a>
+                <a href="stories.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Stories</a>
+                <a href="game.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Challenge</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sub-Header -->
+    <div class="pt-32 pb-12 text-center bg-gradient-to-b from-deep-blue/80 to-transparent">
+        <h1 class="text-5xl font-bold mb-4">Our <span class="text-accent-primary">Family</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto px-4">Meet the dedicated team behind the movement for change.</p>
+    </div>
+
+    <!-- Impact Stats -->
+    <section id="impact" class="py-12 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center glass p-8 rounded-2xl border border-white/5">
+                <div class="fade-up">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2" id="stat-students">0+</div>
+                    <div class="text-accent-primary uppercase tracking-wider text-sm font-bold">Students Reached</div>
+                </div>
+                <div class="fade-up delay-100">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2" id="stat-workshops">0+</div>
+                    <div class="text-accent-primary uppercase tracking-wider text-sm font-bold">Workshops</div>
+                </div>
+                <div class="fade-up delay-200">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2" id="stat-partners">0+</div>
+                    <div class="text-accent-primary uppercase tracking-wider text-sm font-bold">Partners</div>
+                </div>
+                <div class="fade-up delay-300">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white mb-2" id="stat-volunteers">0+</div>
+                    <div class="text-accent-primary uppercase tracking-wider text-sm font-bold">Volunteers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section class="py-20 bg-deep-blue relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 fade-up">Organizing <span
+                    class="text-gradient">Committee</span></h2>
+
+            <!-- Co-Chairs -->
+            <div class="flex flex-col md:flex-row justify-center gap-8 mb-16 fade-up">
+                <!-- Chair 1 -->
+                <div
+                    class="glass p-8 rounded-2xl relative w-full md:w-1/3 text-center border border-white/5 hover:border-accent-primary transition-all group hover:-translate-y-2">
+                    <div
+                        class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-accent-primary shadow-lg mb-6 group-hover:scale-105 transition-transform">
+                        <img src="https://ui-avatars.com/api/?name=Chair+One&background=f97316&color=fff" alt="Co-Chair"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Chair Person Name</h3>
+                    <p class="text-accent-primary font-medium">Co-Chair</p>
+                    <div
+                        class="mt-4 flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <!-- Chair 2 -->
+                <div
+                    class="glass p-8 rounded-2xl relative w-full md:w-1/3 text-center border border-white/5 hover:border-accent-primary transition-all group hover:-translate-y-2">
+                    <div
+                        class="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-accent-primary shadow-lg mb-6 group-hover:scale-105 transition-transform">
+                        <img src="https://ui-avatars.com/api/?name=Chair+Two&background=f97316&color=fff" alt="Co-Chair"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Chair Person Name</h3>
+                    <p class="text-accent-primary font-medium">Co-Chair</p>
+                    <div
+                        class="mt-4 flex justify-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Committee Members Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 fade-up">
+                <!-- Member 1 -->
+                <div class="glass p-6 rounded-xl text-center hover:bg-white/5 transition-colors group">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-white/20 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Member+1&background=1e293b&color=fff" alt="Member"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Member Name</h4>
+                    <p class="text-gray-400 text-sm">Secretary</p>
+                </div>
+                <!-- Member 2 -->
+                <div class="glass p-6 rounded-xl text-center hover:bg-white/5 transition-colors group">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-white/20 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Member+2&background=1e293b&color=fff" alt="Member"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Member Name</h4>
+                    <p class="text-gray-400 text-sm">Treasurer</p>
+                </div>
+                <!-- Member 3 -->
+                <div class="glass p-6 rounded-xl text-center hover:bg-white/5 transition-colors group">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-white/20 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Member+3&background=1e293b&color=fff" alt="Member"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Member Name</h4>
+                    <p class="text-gray-400 text-sm">Coordinator</p>
+                </div>
+                <!-- Member 4 -->
+                <div class="glass p-6 rounded-xl text-center hover:bg-white/5 transition-colors group">
+                    <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-white/20 mb-4">
+                        <img src="https://ui-avatars.com/api/?name=Member+4&background=1e293b&color=fff" alt="Member"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="text-lg font-bold text-white">Member Name</h4>
+                    <p class="text-gray-400 text-sm">Coordinator</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass p-10 rounded-3xl border-l-4 border-accent-primary fade-up">
+                    <div
+                        class="w-16 h-16 bg-accent-primary/10 rounded-xl flex items-center justify-center mb-6 text-3xl text-accent-primary">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Our Mission</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        To eradicate drug dependency among youth through comprehensive education, rehabilitation, and
+                        skill development programs, creating a drug-free and productive generation.
+                    </p>
+                </div>
+                <div class="glass p-10 rounded-3xl border-l-4 border-blue-500 fade-up delay-100">
+                    <div
+                        class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-3xl text-blue-500">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Our Vision</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        A world where every young individual has the strength, support, and opportunity to break free
+                        from addiction and reach their full potential.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-16 w-auto object-contain">
+                        <span class="text-3xl font-bold text-white tracking-tight">Breaking<span
+                            class="text-accent-primary">Free</span> 4.0</span>
+                    </div>
+                    <p class="text-gray-500 mt-6 max-w-sm leading-relaxed">
+                        A non-profit initiative dedicated to rehabilitating and empowering youth affected by substance
+                        abuse. <br> Organized by <span class="text-white">Youth Development Avenue</span>.
+                    </p>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Home</a></li>
+                        <li><a href="phases.html" class="text-gray-500 hover:text-accent-primary transition-colors">Our
+                                Journey</a></li>
+                        <li><a href="about-us.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">About Us</a></li>
+                        <li><a href="stories.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Stories</a></li>
+                        <li><a href="game.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Challenge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-envelope mt-1 text-accent-primary"></i>
+                            <span>hello@breakingfree.org</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-phone mt-1 text-accent-primary"></i>
+                            <span>+94 77 123 4567</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent-primary"></i>
+                            <span>University of Kelaniya,<br>Sri Lanka</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">
+                    &copy; 2026 Project Breaking Free 4.0. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-sm">
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

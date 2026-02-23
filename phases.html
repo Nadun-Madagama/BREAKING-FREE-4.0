@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phases - Project Breaking Free 4.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#020617',
+                        'accent-primary': '#2dd4bf',
+                        'accent-secondary': '#34d399',
+                        'glass-white': 'rgba(255, 255, 255, 0.05)',
+                        'slate-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%)",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-deep-blue text-white relative overflow-x-hidden">
+    <!-- Background Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="blob bg-purple-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -top-20 -left-20 animate-blob">
+        </div>
+        <div
+            class="blob bg-blue-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 top-40 right-10 animate-blob animation-delay-2000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-[60px] w-auto object-contain">
+                        <span class="text-2xl font-bold text-white tracking-tight hidden sm:block">Breaking<span
+                                class="text-accent-primary">Free</span> 4.0</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Home</a>
+                        <a href="phases.html"
+                            class="text-accent-primary font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent-primary">Phases</a>
+                        <a href="about-us.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">About
+                            Us</a>
+                        <a href="stories.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Stories</a>
+                        <a href="game.html"
+                            class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Challenge</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
+                        id="mobile-menu-btn">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-dark/95 backdrop-blur-xl border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 text-center">
+                <a href="index.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Home</a>
+                <a href="phases.html"
+                    class="block text-accent-primary bg-white/5 px-3 py-3 rounded-lg text-base font-medium">Phases</a>
+                <a href="about-us.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">About
+                    Us</a>
+                <a href="stories.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Stories</a>
+                <a href="game.html"
+                    class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Challenge</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sub-Header -->
+    <div class="pt-32 pb-12 text-center bg-gradient-to-b from-deep-blue/80 to-transparent">
+        <h1 class="text-5xl font-bold mb-4">Our <span class="text-accent-primary">Mission & Journey</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto px-4">Discover our vision and the structured path we take from
+            awareness to reintegration.</p>
+    </div>
+
+    <!-- About Section (from about.html) -->
+    <section class="py-20 bg-deep-blue relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="text-4xl font-bold mb-6">A <span class="text-accent-primary">Movement</span>, Not Just a
+                        Program</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-lg">
+                        Project Breaking Free 4.0 is about tearing down the walls of stigma and building bridges to a
+                        better future. We combine modern psychological practices with community support to ensure
+                        long-term rehabilitation and reintegration.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Our holistic approach focuses not just on recovery, but on rediscovery of self-worth and
+                        purpose.
+                    </p>
+                </div>
+                <div class="glass p-8 rounded-2xl border-l-4 border-accent-primary fade-up">
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-accent-primary/10 p-3 rounded-lg mr-4 text-accent-primary">
+                                <i class="fas fa-bullseye text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Our Mission</h4>
+                                <p class="text-gray-400 text-sm">To provide a second chance through education,
+                                    skill-building, and emotional support.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-900/50 p-3 rounded-lg mr-4 text-blue-400">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Our Vision</h4>
+                                <p class="text-gray-400 text-sm">A society where every individual has the opportunity to
+                                    rewrite their story.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-pink-900/50 p-3 rounded-lg mr-4 text-pink-400">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Core Values</h4>
+                                <p class="text-gray-400 text-sm">Empathy, Integrity, Resilience, and Community.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Phases Section (from timeline.html) -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 fade-up">Project <span class="text-gradient">Phases</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 1 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-accent-primary hover:-translate-y-2 transition-transform fade-up">
+                    <div class="text-accent-primary text-sm font-bold uppercase tracking-widest mb-2">Phase 01</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Awareness & Selection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We visit schools and communities to identify youth at risk. Through seminars and interviews, we
+                        select participants who are ready for change.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> School Awareness Campaigns</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Initial Screenings</li>
+                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Parent Consultations</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-blue-500 hover:-translate-y-2 transition-transform fade-up shadow-[0_0_30px_rgba(42,138,246,0.15)]">
+                    <div class="text-blue-400 text-sm font-bold uppercase tracking-widest mb-2">Phase 02</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">The Transformation Camp</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        A 5-day residential immersive program. Participants undergo intensive workshops, counseling, and
+                        skill-building sessions away from their usual environment.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Psychological Counseling</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Skill Development Workshops</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Team Building Activities</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-green-500 hover:-translate-y-2 transition-transform fade-up">
+                    <div class="text-green-400 text-sm font-bold uppercase tracking-widest mb-2">Phase 03</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Integration & Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        The journey doesn't end at the camp. We provide ongoing mentorship, vocational training
+                        opportunities, and regular check-ins to ensure long-term success.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Monthly Follow-ups</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Vocational Training Placements</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Alumni Network Access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Schedule Section (from timeline.html) -->
+    <section class="py-20 bg-deep-blue relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 fade-up">Detailed <span
+                    class="text-gradient">Schedule</span></h2>
+            <div
+                class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-accent-primary before:to-transparent">
+
+                <!-- Day 1 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-accent-primary bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:bg-accent-primary transition-colors z-10">
+                        <span class="text-sm font-bold text-white">01</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-accent-primary transition-all">
+                        <h4 class="text-lg font-bold text-accent-primary">Day 1: Awareness</h4>
+                        <p class="text-gray-400 text-sm mt-2">Understanding the triggers and the science of addiction.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500 bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:bg-blue-600 transition-colors z-10">
+                        <span class="text-sm font-bold text-white">02</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-blue-500 transition-all">
+                        <h4 class="text-lg font-bold text-blue-400">Day 2: Life Mapping</h4>
+                        <p class="text-gray-400 text-sm mt-2">Setting goals and visualizing a future without dependency.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-pink-500 bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:bg-pink-600 transition-colors z-10">
+                        <span class="text-sm font-bold text-white">03</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-pink-500 transition-all">
+                        <h4 class="text-lg font-bold text-pink-400">Day 3: Skill Development</h4>
+                        <p class="text-gray-400 text-sm mt-2">Hands-on workshops for communication and leadership
+                            skills.</p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:bg-green-600 transition-colors z-10">
+                        <span class="text-sm font-bold text-white">04</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-green-500 transition-all">
+                        <h4 class="text-lg font-bold text-green-400">Day 4: Self Employment</h4>
+                        <p class="text-gray-400 text-sm mt-2">Introduction to entrepreneurship and vocational
+                            opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-orange-500 bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:bg-teal-600 transition-colors z-10">
+                        <span class="text-sm font-bold text-white">05</span>
+                    </div>
+                    <div
+                        class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-orange-500 transition-all">
+                        <h4 class="text-lg font-bold text-orange-400">Day 5: Reintegration</h4>
+                        <p class="text-gray-400 text-sm mt-2">Building support networks and graduation ceremony.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do/Impact Areas Section (from about.html) -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold">Our <span class="text-gradient">Impact Areas</span></h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">We focus on four key pillars to ensure sustainable
+                    change.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-accent-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(249,115,22,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-accent-primary/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-accent-primary group-hover:text-white transition-colors">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Awareness</h3>
+                    <p class="text-gray-400 text-sm">Conducting widespread campaigns to educate and prevent drug abuse
+                        in schools.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(42,138,246,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-blue-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">School Programs</h3>
+                    <p class="text-gray-400 text-sm">Interactive workshops tailored for students to build resilience and
+                        life skills.</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(236,72,153,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-pink-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Self-Employment</h3>
+                    <p class="text-gray-400 text-sm">Providing vocational training to ensure financial independence
+                        post-rehab.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,197,94,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-green-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Post-Rehab Support</h3>
+                    <p class="text-gray-400 text-sm">Ongoing mentorship and community circles to prevent relapse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-16 w-auto object-contain">
+                        <span class="text-3xl font-bold text-white tracking-tight">Breaking<span
+                            class="text-accent-primary">Free</span> 4.0</span>
+                    </div>
+                    <p class="text-gray-500 mt-6 max-w-sm leading-relaxed">
+                        A non-profit initiative dedicated to rehabilitating and empowering youth affected by substance
+                        abuse. <br> Organized by <span class="text-white">Youth Development Avenue</span>.
+                    </p>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Home</a></li>
+                        <li><a href="phases.html" class="text-gray-500 hover:text-accent-primary transition-colors">Our
+                                Journey</a></li>
+                        <li><a href="about-us.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">About Us</a></li>
+                        <li><a href="stories.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Stories</a></li>
+                        <li><a href="game.html"
+                                class="text-gray-500 hover:text-accent-primary transition-colors">Challenge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-envelope mt-1 text-accent-primary"></i>
+                            <span>hello@breakingfree.org</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-phone mt-1 text-accent-primary"></i>
+                            <span>+94 77 123 4567</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent-primary"></i>
+                            <span>University of Kelaniya,<br>Sri Lanka</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">
+                    &copy; 2026 Project Breaking Free 4.0. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-sm">
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

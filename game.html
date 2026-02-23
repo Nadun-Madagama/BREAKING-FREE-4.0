@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Free: Choose Your Future | Drug Awareness Game</title>
+    <link rel="stylesheet" href="game-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="theme-dark">
+    <!-- Background Cinematic Layers -->
+    <div id="bg-overlay"></div>
+    <div id="dynamic-bg" style="background-image: url('assets/game_bg.png');"></div>
+    <div id="scene-bg-layer" class="fade-in"></div>
+
+    <div id="game-container">
+        <!-- Progress Bar -->
+        <div id="progress-container" class="hidden">
+            <div id="progress-bar"></div>
+            <div id="score-display">Hope Score: <span id="hope-score">50</span></div>
+        </div>
+
+        <!-- Registration Screen -->
+        <section id="registration-screen" class="active">
+            <div class="content-box">
+                <h1>Breaking Free</h1>
+                <h2>Choose Your Future</h2>
+                <p class="intro-text">Welcome to the interactive awareness challenge. Your choices today determine your
+                    future. Enter your details to begin.</p>
+
+                <form id="registration-form">
+                    <div class="input-group">
+                        <label for="student-name">Full Name</label>
+                        <input type="text" id="student-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="school-name">School Name</label>
+                        <input type="text" id="school-name" placeholder="Enter school name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="class-name">Class</label>
+                        <input type="text" id="class-name" placeholder="Enter your class (e.g. 11-A)" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Start Adventure</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Game Scene Screen -->
+        <section id="game-screen" class="hidden">
+            <div class="content-box">
+                <div id="scene-image" class="hidden"></div>
+                <h3 id="scene-title">Scene Title</h3>
+                <p id="scene-description">Scene description goes here...</p>
+                <div id="choices-container" class="choices-stack">
+                    <!-- Choices will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="hidden">
+            <div class="content-box text-center">
+                <h2 id="ending-title">Ending Title</h2>
+                <div id="ending-message-container">
+                    <p id="ending-description"></p>
+                    <p id="motivational-message" class="highlight-text"></p>
+                </div>
+
+                <div class="result-stats">
+                    <p>Final Hope Score: <span id="final-score">0</span></p>
+                </div>
+
+                <div id="leaderboard-section">
+                    <hr>
+                    <h3>Top 10 Leaders</h3>
+                    <div class="leaderboard-table-container">
+                        <table id="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>School | Class</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Leaderboard data -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Restart button removed for "one chance" rule -->
+                <a href="index.html" class="btn-link">Back to Home</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="game-script.js"></script>
+</body>
+
+</html>
