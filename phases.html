@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phases - Project Breaking Free 4.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#020617',
+                        'accent-primary': '#2dd4bf',
+                        'accent-secondary': '#34d399',
+                        'glass-white': 'rgba(255, 255, 255, 0.05)',
+                        'slate-dark': '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%)",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-deep-blue text-white relative overflow-x-hidden">
+    <!-- Background Particles -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div
+            class="blob bg-purple-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -top-20 -left-20 animate-blob">
+        </div>
+        <div
+            class="blob bg-blue-600 w-96 h-96 rounded-full mix-blend-multiply filter blur-3xl opacity-20 top-40 right-10 animate-blob animation-delay-2000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-[60px] w-auto object-contain">
+                        <span class="text-2xl font-bold text-white tracking-tight hidden sm:block">Breaking<span
+                                class="text-accent-primary">Free</span> 4.0</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Home</a>
+                        <a href="phases.html" class="text-accent-primary font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent-primary">Phases</a>
+                        <a href="awareness.html" class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Awareness</a>
+                        <a href="about-us.html" class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">About Us</a>
+                        <a href="videos.html" class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Videos</a>
+                        <a href="quizzes.html" class="text-gray-300 hover:text-white transition-colors font-medium relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent-primary hover:after:w-full after:transition-all">Quizzes</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none"
+                        id="mobile-menu-btn">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-dark/95 backdrop-blur-xl border-t border-white/5" id="mobile-menu">
+            <div class="px-4 pt-4 pb-6 space-y-2 text-center">
+                <a href="index.html" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Home</a>
+                <a href="phases.html" class="block text-accent-primary bg-white/5 px-3 py-3 rounded-lg text-base font-medium">Phases</a>
+                <a href="awareness.html" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Awareness</a>
+                <a href="about-us.html" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">About Us</a>
+                <a href="videos.html" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Videos</a>
+                <a href="quizzes.html" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-3 rounded-lg text-base font-medium transition-colors">Quizzes</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sub-Header -->
+    <div class="pt-32 pb-12 text-center bg-gradient-to-b from-deep-blue/80 to-transparent">
+        <h1 class="text-5xl font-bold mb-4">Our <span class="text-accent-primary">Mission & Journey</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto px-4">Discover our vision and the structured path we take from
+            awareness to reintegration.</p>
+    </div>
+
+    <!-- About Section (from about.html) -->
+    <section class="py-20 bg-deep-blue relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-up">
+                    <h2 class="text-4xl font-bold mb-6">A <span class="text-accent-primary">Movement</span>, Not Just a
+                        Program</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-lg">
+                        Project Breaking Free 4.0 is about tearing down the walls of stigma and building bridges to a
+                        better future. We combine modern psychological practices with community support to ensure
+                        long-term rehabilitation and reintegration.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed text-lg">
+                        Our holistic approach focuses not just on recovery, but on rediscovery of self-worth and
+                        purpose.
+                    </p>
+                </div>
+                <div class="glass p-8 rounded-2xl border-l-4 border-accent-primary fade-up">
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-accent-primary/10 p-3 rounded-lg mr-4 text-accent-primary">
+                                <i class="fas fa-bullseye text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Our Mission</h4>
+                                <p class="text-gray-400 text-sm">To provide a second chance through education,
+                                    skill-building, and emotional support.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-blue-900/50 p-3 rounded-lg mr-4 text-blue-400">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Our Vision</h4>
+                                <p class="text-gray-400 text-sm">A society where every individual has the opportunity to
+                                    rewrite their story.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-pink-900/50 p-3 rounded-lg mr-4 text-pink-400">
+                                <i class="fas fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Core Values</h4>
+                                <p class="text-gray-400 text-sm">Empathy, Integrity, Resilience, and Community.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Phases Section (from timeline.html) -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 fade-up">Project <span class="text-gradient">Phases</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Phase 1 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-accent-primary hover:-translate-y-2 transition-transform fade-up">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="text-accent-primary text-sm font-bold uppercase tracking-widest">Phase 01</div>
+                        <span class="px-2 py-0.5 bg-accent-primary/20 text-accent-primary text-[10px] font-bold rounded uppercase">Ongoing</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Awareness & Selection</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We visit schools and communities to identify youth at risk. Through seminars and interviews, we
+                        select participants who are ready for change.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                        <li><i class="fas fa-check text-accent-primary mr-2"></i> Session 1 & 2 <span class="text-[10px] text-gray-500 font-bold ml-1">(DONE)</span></li>
+                        <li><i class="fas fa-calendar-alt text-accent-primary mr-2"></i> Session 3: <strong>April 23</strong> <span class="text-[10px] text-accent-primary font-bold ml-1">(PLANNED)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-blue-500 hover:-translate-y-2 transition-transform fade-up shadow-[0_0_30px_rgba(42,138,246,0.15)]">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="text-blue-400 text-sm font-bold uppercase tracking-widest">Phase 02</div>
+                        <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[10px] font-bold rounded uppercase">Completed</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Awrudu Uthsawaya & Motivational Programme</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        A meaningful and inspiring initiative bringing joy, motivation, and a renewed sense of purpose without the need for drugs.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> 18th of April 2026 <span class="text-[10px] text-gray-500 font-bold ml-1">(DONE)</span></li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Awrudu Uthsawaya</li>
+                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Real-Life Transformation Stories</li>
+                    </ul>
+                </div>
+
+                <!-- Phase 3 -->
+                <div
+                    class="glass p-8 rounded-2xl border-t-4 border-green-500 hover:-translate-y-2 transition-transform fade-up">
+                    <div class="flex justify-between items-start mb-2">
+                        <div class="text-green-400 text-sm font-bold uppercase tracking-widest">Phase 03</div>
+                        <span class="px-2 py-0.5 bg-green-500/20 text-green-400 text-[10px] font-bold rounded uppercase">Started</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Integration & Support</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        The journey doesn't end at the camp. We provide ongoing mentorship, vocational training
+                        opportunities, and regular check-ins to ensure long-term success.
+                    </p>
+                    <ul class="text-gray-400 text-sm space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Session 01: <strong>April 01</strong> <span class="text-[10px] text-gray-500 font-bold ml-1">(DONE)</span></li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Vocational Training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 01 Detailed Section -->
+    <section class="py-20 relative bg-gradient-to-b from-transparent to-deep-blue/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold">Phase 01: <span class="text-gradient">Prevention & Awareness</span></h2>
+                <p class="text-accent-primary mt-4 font-medium italic text-xl">“Say No Today. Lead Tomorrow.”</p>
+                <p class="text-gray-400 mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
+                    Building a generation that stands strong against drugs. This phase empowers school students with awareness, courage, and leadership to choose a healthier, drug-free future.
+                </p>
+            </div>
+
+            <!-- Session 01 -->
+            <div class="mb-24">
+                <div class="flex flex-col md:flex-row gap-8 mb-10 fade-up">
+                    <div class="md:w-1/3">
+                        <div class="glass p-8 rounded-2xl border-l-4 border-accent-primary h-full shadow-[0_0_30px_rgba(45,212,191,0.1)]">
+                            <h3 class="text-2xl font-bold text-white mb-4">Drug Prevention Councillors Training Programme</h3>
+                            <div class="inline-block px-3 py-1 bg-accent-primary/20 text-accent-primary rounded-full text-xs font-bold uppercase tracking-wider mb-6">Session 01</div>
+                            <ul class="space-y-4 text-gray-300 mb-8 font-medium">
+                                <li class="flex items-center"><i class="fas fa-calendar-alt text-accent-primary mr-3 w-5"></i>17th & 18th of March 2026</li>
+                                <li class="flex items-center"><i class="fas fa-clock text-accent-primary mr-3 w-5"></i>9.00 AM onwards</li>
+                                <li class="flex items-start"><i class="fas fa-map-marker-alt text-accent-primary mr-3 w-5 mt-1"></i><span>Alcohol and Drug Information Centre Premises</span></li>
+                            </ul>
+                            <div class="border-t border-white/10 pt-6">
+                                <p class="text-accent-primary italic font-medium mb-4">“Lead the Change. Be the Voice.”</p>
+                                <p class="text-sm text-gray-400 leading-relaxed">
+                                    A two-day intensive training to shape student leaders into peer counsellors. Equipped with knowledge, confidence, and responsibility, they become the frontline defenders against drug abuse in their schools.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 01.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 02.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 50ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 03.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 100ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 04.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 150ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 05.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 200ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 06.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 250ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 07.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 300ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 08.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 350ms;">
+                            <img src="assets/Phase 01/Session 01/P1 - S1 - 09.jpg" alt="Session 1 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-accent-primary/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 400ms;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session 02 -->
+            <div>
+                <div class="flex flex-col md:flex-row-reverse gap-8 mb-10 fade-up">
+                    <div class="md:w-1/3">
+                        <div class="glass p-8 rounded-2xl border-r-4 border-blue-500 h-full shadow-[0_0_30px_rgba(59,130,246,0.1)]">
+                            <h3 class="text-2xl font-bold text-white mb-4">Drug Abuse Prevention Workshop</h3>
+                            <div class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider mb-6">Session 02</div>
+                            <ul class="space-y-4 text-gray-300 mb-8 font-medium">
+                                <li class="flex items-center"><i class="fas fa-calendar-alt text-blue-400 mr-3 w-5"></i>23rd of March 2026</li>
+                                <li class="flex items-center"><i class="fas fa-clock text-blue-400 mr-3 w-5"></i>8.30 AM onwards</li>
+                                <li class="flex items-start"><i class="fas fa-map-marker-alt text-blue-400 mr-3 w-5 mt-1"></i><span>Nawalapitiya Central College</span></li>
+                            </ul>
+                            <div class="border-t border-white/10 pt-6">
+                                <p class="text-blue-400 italic font-medium mb-4">“Your Future. Your Choice. Stay Drug-Free.”</p>
+                                <p class="text-sm text-gray-400 leading-relaxed">
+                                    An impactful awareness session designed to open minds and inspire action. Through real stories and engaging discussions, students discover the truth about drugs—and the power they hold to choose a better path.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3">
+                        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 01.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 02.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 50ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 03.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 100ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 04.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 150ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 05.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 200ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 06.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 250ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 07.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 300ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 08.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 350ms;">
+                            <img src="assets/Phase 01/Session 02/P1 - S2 - 09.jpg" alt="Session 2 Image" class="w-full aspect-[4/3] object-cover rounded-xl border border-white/10 hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-500 fade-up shadow-lg" style="transition-delay: 400ms;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 02 Detailed Section -->
+    <section class="py-24 relative overflow-hidden bg-gradient-to-b from-transparent to-deep-blue/50 border-t border-white/5">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_50%,rgba(59,130,246,0.08),transparent_50%)] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold">Phase 02: <span class="text-gradient">Rehabilitation & Recovery</span></h2>
+                <div class="flex items-center justify-center gap-4 mt-4">
+                    <div class="h-px w-12 bg-blue-500/50"></div>
+                    <p class="text-blue-400 font-medium italic text-xl tracking-wide">“Say No Today For A Better Tomorrow”</p>
+                    <div class="h-px w-12 bg-blue-500/50"></div>
+                </div>
+                <p class="text-gray-400 mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
+                    A meaningful and inspiring initiative designed to bring hope, motivation, and a renewed sense of purpose to individuals on their recovery journey.
+                </p>
+            </div>
+
+            <!-- Session Details -->
+            <div class="fade-up">
+                <div class="flex flex-col lg:flex-row-reverse gap-10 items-stretch border-b border-white/5 pb-20">
+                    <!-- Description Card -->
+                    <div class="lg:w-1/3 flex">
+                        <div class="glass p-7 rounded-3xl border border-white/10 border-r-4 border-r-blue-500 h-full flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-xl font-bold text-white pr-2">Awrudu Uthsawaya & Motivational Programme</h3>
+                                <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-blue-500/20 shrink-0 ml-2">Phase 02</span>
+                            </div>
+                            
+                            <div class="space-y-5 mb-8 flex-shrink-0">
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mr-4 group-hover:bg-blue-500/20 transition-colors">
+                                        <i class="fas fa-calendar-alt text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Date</p>
+                                        <p class="text-gray-200 font-medium">18th of April 2026</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mr-4 group-hover:bg-blue-500/20 transition-colors">
+                                        <i class="fas fa-map-marker-alt text-blue-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Location</p>
+                                        <p class="text-gray-200 text-sm font-medium">Rehabilitation Center, Rathnapura</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto pt-6 border-t border-white/5">
+                                <p class="text-blue-400 italic font-medium mb-3 text-sm">“Rediscovering Joy Without Drugs.”</p>
+                                <div class="text-sm text-gray-400 leading-relaxed overflow-y-auto pr-3" style="max-height: 480px;">
+                                    <p class="mb-4">The day began with a vibrant Awrudu Uthsawaya, where participants engaged in a series of fun-filled traditional games and activities. Laughter, teamwork, and excitement filled the environment as everyone took part with great enthusiasm.</p>
+                                    <p class="mb-4">This celebration carried a powerfully resonant message—life can be joyful, exciting, and absolutely fulfilling without the need for drugs. Through these seemingly simple yet highly meaningful moments, participants experienced how genuine, long-term happiness can come naturally from connection, culture, and shared experiences.</p>
+                                    <p class="mb-4">A key highlight of the day was the dedicated motivational session, designed to inspire and empower individuals currently undergoing rehabilitation. The session deeply focused on resilience, discovering self-belief, and understanding the profound importance of making positive life choices.</p>
+                                    <p class="mb-4">What made this session truly impactful was the direct involvement of individuals who had successfully completed their own rehabilitation and are now leading stable, successful, and happy lives. Their personal stories bridged the gap between the past and the future—highlighting the struggles faced during addiction, the incredible strength required to overcome them, and the ultimate success achieved.</p>
+                                    <p class="mb-4">These powerful narratives served as living proof that complete transformation is not just a dream, but an achievable reality, creating a deep emotional connection and inspiring current participants to deeply believe in their own potential.</p>
+                                    <p>As part of our ongoing commitment, we concluded the phase by making a donation of essential items to the center, aiming to substantially support their daily needs and sustainably improve the overall well-being of the residents.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Grid -->
+                    <div class="lg:w-2/3">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 h-full">
+                            <!-- Images -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl">
+                                <img src="assets/Phase 02/P2 - 01.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 50ms;">
+                                <img src="assets/Phase 02/P2 - 02.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 100ms;">
+                                <img src="assets/Phase 02/P2 - 03.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 150ms;">
+                                <img src="assets/Phase 02/P2 - 04.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 200ms;">
+                                <img src="assets/Phase 02/P2 - 05.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 250ms;">
+                                <img src="assets/Phase 02/P2 - 06.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 300ms;">
+                                <img src="assets/Phase 02/P2 - 07.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 350ms;">
+                                <img src="assets/Phase 02/P2 - 08.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 400ms;">
+                                <img src="assets/Phase 02/P2 - 09.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 450ms;">
+                                <img src="assets/Phase 02/P2 - 10.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 500ms;">
+                                <img src="assets/Phase 02/P2 - 11.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 550ms;">
+                                <img src="assets/Phase 02/P2 - 12.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 600ms;">
+                                <img src="assets/Phase 02/P2 - 13.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 650ms;">
+                                <img src="assets/Phase 02/P2 - 14.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 700ms;">
+                                <img src="assets/Phase 02/P2 - 15.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-blue-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 750ms;">
+                                <img src="assets/Phase 02/P2 - 16.jpeg" alt="Phase 2 Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 03 Detailed Section -->
+    <section class="py-24 relative overflow-hidden border-t border-white/5">
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_50%,rgba(34,197,94,0.08),transparent_50%)] pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold">Phase 03: <span class="text-gradient">Youth Awareness & Community Action</span></h2>
+                <div class="flex items-center justify-center gap-4 mt-4">
+                    <div class="h-px w-12 bg-green-500/50"></div>
+                    <p class="text-green-400 font-medium italic text-xl tracking-wide">“Empower Youth. Protect the Future.”</p>
+                    <div class="h-px w-12 bg-green-500/50"></div>
+                </div>
+                <p class="text-gray-400 mt-6 max-w-3xl mx-auto leading-relaxed text-lg">
+                    This phase is dedicated to engaging and empowering youth to take a stand against drug abuse. By reaching young individuals directly within the community, we inspire responsible choices and a united movement toward a drug-free generation.
+                </p>
+            </div>
+
+            <!-- Session 01 -->
+            <div class="fade-up">
+                <div class="flex flex-col lg:flex-row gap-10 items-stretch">
+                    <!-- Description Card -->
+                    <div class="lg:w-1/3 flex">
+                        <div class="glass p-7 rounded-3xl border border-white/10 border-l-4 border-l-green-500 h-full flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-2xl">
+                            <div class="flex items-center justify-between mb-6">
+                                <h3 class="text-2xl font-bold text-white">Leaflet & Sticker Distribution</h3>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-lg text-[10px] font-bold uppercase tracking-widest border border-green-500/20">Session 01</span>
+                            </div>
+                            
+                            <div class="space-y-5 mb-8">
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mr-4 group-hover:bg-green-500/20 transition-colors">
+                                        <i class="fas fa-calendar-alt text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Date</p>
+                                        <p class="text-gray-200 font-medium">1st of April 2026</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mr-4 group-hover:bg-green-500/20 transition-colors">
+                                        <i class="fas fa-clock text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Time</p>
+                                        <p class="text-gray-200 font-medium">9.00 AM Onwards</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center group">
+                                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mr-4 group-hover:bg-green-500/20 transition-colors">
+                                        <i class="fas fa-map-marker-alt text-green-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Location</p>
+                                        <p class="text-gray-200 font-medium">Kiribathgoda Town</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-auto pt-6 border-t border-white/5">
+                                <p class="text-green-400 italic font-medium mb-3 text-sm">“Youth Against Drugs. Be the Change.”</p>
+                                <p class="text-sm text-gray-400 leading-relaxed">
+                                    As the opening initiative of Phase 03, this campaign took awareness directly to the streets—connecting with youth in real-world spaces. Through impactful leaflets and bold stickers, we delivered a clear message: the power to say no lies within you.
+                                </p>
+                                <p class="text-sm text-gray-400 leading-relaxed mt-4">
+                                    Each interaction sparked meaningful conversations, and every sticker distributed acted as a silent advocate, building a stronger, more informed youth community ready to stand together against drug abuse.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Grid -->
+                    <div class="lg:w-2/3">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <!-- Image 1 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 01.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 50ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 02.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 3 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 100ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 03.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 4 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 150ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 04.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 5 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 200ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 05.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 6 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 250ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 06.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 7 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 300ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 07.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 8 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 350ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 08.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 9 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 400ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 09.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 10 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 450ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 10.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 11 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 500ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 11.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                            <!-- Image 12 -->
+                            <div class="group relative overflow-hidden rounded-2xl aspect-square border border-white/5 hover:border-green-500/50 transition-all duration-500 shadow-xl" style="transition-delay: 550ms;">
+                                <img src="assets/Phase 03/Session 01/P3 - S1 - 12.jpeg" alt="Campaign Activity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Project Timeline Section -->
+    <section class="py-20 bg-deep-blue relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-16 fade-up">Our Project <span
+                    class="text-gradient">Journey</span></h2>
+            
+            <div class="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-accent-primary/20 before:via-blue-500 before:to-accent-primary/20">
+
+                <!-- Event 1: Phase 01 Session 01 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-accent-primary bg-accent-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-accent-primary transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-accent-primary font-bold text-xs tracking-widest uppercase">Phase 01 | Session 01</span>
+                            <span class="text-gray-500 text-[10px] font-bold">MAR 17-18</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Councillors Training Programme</h4>
+                        <p class="text-gray-400 text-sm mt-2">Training student leaders as peer counsellors at the ADIC Premises.</p>
+                    </div>
+                </div>
+
+                <!-- Event 2: Phase 01 Session 02 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-accent-primary bg-accent-primary text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-accent-primary transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-accent-primary font-bold text-xs tracking-widest uppercase">Phase 01 | Session 02</span>
+                            <span class="text-gray-500 text-[10px] font-bold">MAR 23</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Prevention Workshop</h4>
+                        <p class="text-gray-400 text-sm mt-2">Awareness session for students at Nawalapitiya Central College.</p>
+                    </div>
+                </div>
+
+                <!-- Event 3: Phase 03 Session 01 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-green-500 bg-green-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-green-500 transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-green-400 font-bold text-xs tracking-widest uppercase">Phase 03 | Session 01</span>
+                            <span class="text-gray-500 text-[10px] font-bold">APR 01</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Initial Integration Step</h4>
+                        <p class="text-gray-400 text-sm mt-2">Connecting with communities to begin the long-term support phase.</p>
+                    </div>
+                </div>
+
+                <!-- Event 4: Phase 02 (Completed) -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500 bg-blue-500 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <i class="fas fa-check text-xs"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-blue-500 transition-all shadow-[0_0_20px_rgba(59,130,246,0.05)]">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-blue-400 font-bold text-xs tracking-widest uppercase">Phase 02 | Completed</span>
+                            <span class="text-gray-500 text-[10px] font-bold">APR 18</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Awrudu Uthsawaya & Motivational Programme</h4>
+                        <p class="text-gray-400 text-sm mt-2">A meaningful and inspiring initiative spreading joy at the Rehabilitation Center.</p>
+                    </div>
+                </div>
+
+                <!-- Event 5: Phase 01 Session 03 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group fade-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-deep-blue shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+                        <span class="text-[10px] font-bold text-gray-500 uppercase">P1</span>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass p-6 rounded-xl border border-white/5 hover:border-accent-primary transition-all">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-gray-500 font-bold text-xs tracking-widest uppercase">Phase 01 | Session 03</span>
+                            <span class="text-gray-500 text-[10px] font-bold">APR 23</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-400">Final School Awareness</h4>
+                        <p class="text-gray-500 text-sm mt-2 italic">Continuing the mission to empower the next generation.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do/Impact Areas Section (from about.html) -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold">Our <span class="text-gradient">Impact Areas</span></h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">We focus on four key pillars to ensure sustainable
+                    change.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-accent-primary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(249,115,22,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-accent-primary/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-accent-primary group-hover:text-white transition-colors">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Awareness</h3>
+                    <p class="text-gray-400 text-sm">Conducting widespread campaigns to educate and prevent drug abuse
+                        in schools.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(42,138,246,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-blue-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">School Programs</h3>
+                    <p class="text-gray-400 text-sm">Interactive workshops tailored for students to build resilience and
+                        life skills.</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-pink-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(236,72,153,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-pink-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-pink-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Self-Employment</h3>
+                    <p class="text-gray-400 text-sm">Providing vocational training to ensure financial independence
+                        post-rehab.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="glass p-8 rounded-xl border border-white/5 hover:border-green-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,197,94,0.2)] group fade-up">
+                    <div
+                        class="w-14 h-14 bg-green-600/20 rounded-full flex items-center justify-center mb-6 text-2xl group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Post-Rehab Support</h3>
+                    <p class="text-gray-400 text-sm">Ongoing mentorship and community circles to prevent relapse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-black py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/logo.png" alt="Breaking Free 4.0 Logo" class="h-16 w-auto object-contain">
+                        <span class="text-3xl font-bold text-white tracking-tight">Breaking<span
+                            class="text-accent-primary">Free</span> 4.0</span>
+                    </div>
+                    <p class="text-gray-500 mt-6 max-w-sm leading-relaxed">
+                        A non-profit initiative dedicated to rehabilitating and empowering youth affected by substance
+                        abuse. <br> Organized by <span class="text-white">Youth Development Avenue</span>.
+                    </p>
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://www.facebook.com/share/p/1B46z1QBPa/" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/leo_uok" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/leo_uok/" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/leo-club-of-university-of-kelaniya" target="_blank"
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-primary transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-500 hover:text-accent-primary transition-colors">Home</a></li>
+                        <li><a href="phases.html" class="text-accent-primary font-medium transition-colors">Our Journey</a></li>
+                        <li><a href="awareness.html" class="text-gray-500 hover:text-accent-primary transition-colors">Awareness</a></li>
+                        <li><a href="about-us.html" class="text-gray-500 hover:text-accent-primary transition-colors">About Us</a></li>
+                        <li><a href="videos.html" class="text-gray-500 hover:text-accent-primary transition-colors">Videos</a></li>
+                        <li><a href="quizzes.html" class="text-gray-500 hover:text-accent-primary transition-colors">Quizzes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-envelope mt-1 text-accent-primary"></i>
+                            <span>hello@breakingfree.org</span>
+                        </li>
+                        
+                        <li class="flex items-start gap-3 text-gray-500">
+                            <i class="fas fa-map-marker-alt mt-1 text-accent-primary"></i>
+                            <span>Leo club of University of Kelaniya,<br>Dalugama, Sri Lanka</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">
+                    &copy; 2026 Project Breaking Free 4.0. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0 text-sm">
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
